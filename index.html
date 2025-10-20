@@ -6,46 +6,40 @@
   <title>Teknova LLC | IT Consulting & Software Solutions</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    /* ---------- Global Styles ---------- */
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
       color: #333;
       background-color: #f8f9fb;
-      line-height: 1.6;
+      scroll-behavior: smooth;
     }
 
-    header {
-      background: linear-gradient(135deg, #0052cc, #007bff);
-      color: white;
-      padding: 80px 20px;
-      text-align: center;
+    h1, h2, h3 {
+      margin: 0;
     }
 
-    header h1 {
-      font-size: 2.8rem;
-      margin-bottom: 10px;
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
-    header p {
-      font-size: 1.2rem;
-      opacity: 0.9;
-    }
-
+    /* ---------- Navigation ---------- */
     nav {
-      background: white;
+      background: rgba(255, 255, 255, 0.95);
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-      padding: 12px 0;
+      padding: 14px 0;
       text-align: center;
       position: sticky;
       top: 0;
       z-index: 10;
+      backdrop-filter: blur(6px);
     }
 
     nav a {
       color: #0052cc;
-      text-decoration: none;
       font-weight: 600;
-      margin: 0 15px;
+      margin: 0 18px;
       transition: 0.3s;
     }
 
@@ -53,10 +47,35 @@
       color: #007bff;
     }
 
+    /* ---------- Hero Section ---------- */
+    header {
+      background: linear-gradient(rgba(0, 40, 100, 0.8), rgba(0, 40, 100, 0.8)), url('https://images.unsplash.com/photo-1523966211575-eb4a01e7dd51?auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 120px 20px;
+      text-align: center;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-top: 10px;
+    }
+
+    /* ---------- Sections ---------- */
     section {
       max-width: 1100px;
-      margin: 60px auto;
+      margin: 70px auto;
       padding: 0 20px;
+      animation: fadeUp 0.8s ease-out;
     }
 
     .section-title {
@@ -85,15 +104,33 @@
 
     .card {
       background: white;
-      padding: 25px;
-      border-radius: 12px;
+      padding: 30px;
+      border-radius: 14px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, #0052cc, #007bff);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .card:hover::before {
+      opacity: 1;
     }
 
     .card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     }
 
     .card h3 {
@@ -101,6 +138,60 @@
       margin-bottom: 10px;
     }
 
+    .card p {
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    /* ---------- Contact Section ---------- */
+    .contact {
+      text-align: center;
+      background: linear-gradient(135deg, #0052cc, #007bff);
+      color: white;
+      border-radius: 12px;
+      padding: 50px 20px;
+      margin-top: 40px;
+    }
+
+    .contact a {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 12px 28px;
+      border-radius: 30px;
+      display: inline-block;
+      margin-top: 20px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .contact a:hover {
+      background: white;
+      color: #0052cc;
+    }
+
+    /* ---------- Floating Button ---------- */
+    .floating-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 14px 22px;
+      border-radius: 40px;
+      font-weight: 600;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+      transition: 0.3s;
+      z-index: 100;
+    }
+
+    .floating-btn:hover {
+      background: #0052cc;
+      transform: translateY(-3px);
+    }
+
+    /* ---------- Footer ---------- */
     footer {
       background: #002b80;
       color: white;
@@ -110,13 +201,20 @@
       margin-top: 60px;
     }
 
+    /* ---------- Animations ---------- */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     @media (max-width: 768px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      header p {
-        font-size: 1rem;
-      }
+      header h1 { font-size: 2.2rem; }
+      header p { font-size: 1rem; }
     }
   </style>
 </head>
@@ -130,16 +228,15 @@
 
   <header>
     <h1>Teknova LLC</h1>
-    <p>IT Consulting & Custom Software Solutions for the Modern Enterprise</p>
+    <p>Transforming Ideas into Digital Excellence</p>
   </header>
 
   <section id="about">
     <h2 class="section-title">About Us</h2>
     <p>
-      At <strong>Teknova LLC</strong>, we deliver cutting-edge IT consulting and software solutions that empower 
-      businesses to grow smarter, faster, and more efficiently. With a client-first approach, we specialize in 
-      scalable digital solutions designed for real-world impact. From cloud strategy to full-cycle application 
-      development, we help organizations thrive in the digital era.
+      <strong>Teknova LLC</strong> is a trusted partner in technology consulting and custom software development. 
+      We empower enterprises to innovate, scale, and thrive through tailored digital solutions. 
+      Our team combines strategy, design, and engineering to build reliable, future-ready systems that solve real business challenges.
     </p>
   </section>
 
@@ -148,42 +245,34 @@
     <div class="cards">
       <div class="card">
         <h3>IT Consulting</h3>
-        <p>
-          We provide expert advice on technology strategy, digital transformation, and systems integration—helping
-          you optimize performance and reduce costs.
-        </p>
+        <p>Strategic guidance to align your technology roadmap with your business goals — driving efficiency and innovation.</p>
       </div>
       <div class="card">
         <h3>Custom Software Development</h3>
-        <p>
-          Our team builds secure, scalable applications tailored to your unique business needs—whether it’s web, mobile, or enterprise platforms.
-        </p>
+        <p>From concept to code, we build secure, scalable applications tailored to your business processes and customer experience.</p>
       </div>
       <div class="card">
         <h3>Cloud & DevOps</h3>
-        <p>
-          Streamline operations with cloud adoption, CI/CD automation, and infrastructure modernization for better agility and reliability.
-        </p>
+        <p>Accelerate deployment cycles and reduce infrastructure costs with modern DevOps practices and cloud optimization.</p>
       </div>
       <div class="card">
         <h3>Data & Analytics</h3>
-        <p>
-          Turn raw data into actionable insights with our analytics and business intelligence solutions.
-        </p>
+        <p>Unlock insights from data to improve decision-making, streamline operations, and gain a competitive advantage.</p>
       </div>
     </div>
   </section>
 
   <section id="contact">
-    <h2 class="section-title">Get in Touch</h2>
-    <p style="text-align:center;">
-      Have a project in mind or need expert IT guidance?<br>
-      Reach out to <strong>Teknova LLC</strong> — we’d love to collaborate.
-    </p>
-    <p style="text-align:center; margin-top: 10px;">
-      📧 <a href="mailto:info@teknovahub.com" style="color:#007bff; text-decoration:none;">info@teknovahub.com</a>
-    </p>
+    <div class="contact">
+      <h2>Let’s Build Something Great Together</h2>
+      <p>Have a project or need technical expertise? We’d love to hear from you.</p>
+      <a href="mailto:info@teknovahub.com">Contact Us</a>
+    </div>
   </section>
+
+  <button class="floating-btn" onclick="window.location.href='mailto:info@teknovahub.com'">
+    📧 Contact Us
+  </button>
 
   <footer>
     © 2025 Teknova LLC. All rights reserved.
